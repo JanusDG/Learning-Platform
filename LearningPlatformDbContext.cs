@@ -5,17 +5,16 @@ using LearningPlatform.Models;
 namespace LearningPlatform.Data
 {
     
+    
     public class LearningPlatformDbContext : DbContext
     {
+        public LearningPlatformDbContext(DbContextOptions<LearningPlatformDbContext> options)
+            : base(options)
+        {
+        }
         public DbSet<User> Users { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<UserCourse> UserCourses { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(
-                "Server=localhost;Database=LearningPlatformDB;User Id=SA;Password=;TrustServerCertificate=True;");
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

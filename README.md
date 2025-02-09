@@ -1,1 +1,1 @@
-# Learning-Platform
+# LearningPlatform
